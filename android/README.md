@@ -1,1 +1,2 @@
-
+# Native Android integration
+This is the native scaffold. Production integration points: Photo Picker/MediaStore, Media3/ExoPlayer preview, MediaCodec/local transcoding, thumbnails, multi-track composition, text/overlay rendering, chroma key, brush masks, audio mixing/fades, 720p/1080p export and MediaStore save. Keep processing local; no AI/API key is required. Check licenses before adding third-party encoders.
