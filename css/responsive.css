@@ -1,0 +1,1 @@
+@media(max-width:900px){.workspace{display:flex;flex-direction:column}.inspector{border-left:0;border-top:1px solid var(--line)}.project-name{display:none}.preview-panel{min-height:58vh}}@media(max-width:520px){.save-btn{display:none}.stage{height:52vh}}
