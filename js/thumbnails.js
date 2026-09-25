@@ -1,0 +1,1 @@
+export async function generateThumbnail(url){return new Promise(r=>{let v=document.createElement('video');v.onloadeddata=()=>{v.currentTime=.1};v.onseeked=()=>{let c=document.createElement('canvas');c.width=240;c.height=135;c.getContext('2d').drawImage(v,0,0,240,135);r(c.toDataURL('image/jpeg',.75))};v.onerror=()=>r(null);v.src=url})}

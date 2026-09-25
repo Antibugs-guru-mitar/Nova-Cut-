@@ -1,0 +1,1 @@
+import{state}from'./state.js';export function trimSelected(a,b){let c=state.clips.find(x=>x.id===state.selectedClipId);if(!c)return;c.start=Math.max(0,Number(a));c.end=Math.min(c.duration,Math.max(c.start,Number(b)))}

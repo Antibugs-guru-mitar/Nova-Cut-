@@ -1,0 +1,1 @@
+export function addOverlay(file){let s=document.querySelector('#stage'),l=s.querySelector('.overlay-layer')||s.appendChild(Object.assign(document.createElement('div'),{className:'overlay-layer'}));let i=document.createElement('img');i.src=URL.createObjectURL(file);l.appendChild(i)}

@@ -1,0 +1,1 @@
+import{state}from'./state.js';import{uid}from'./utils.js';export function splitSelected(t){let i=state.clips.findIndex(x=>x.id===state.selectedClipId);if(i<0)return false;let c=state.clips[i];if(t<=c.start||t>=c.end)return false;let a={...c,id:uid('clip'),end:t},b={...c,id:uid('clip'),start:t};state.clips.splice(i,1,a,b);state.selectedClipId=a.id;return true}

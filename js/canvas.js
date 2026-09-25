@@ -1,0 +1,1 @@
+import{state}from"./state.js";export function setRatio(r){state.ratio=r;document.querySelector("#stage").className="stage ratio-"+r.replace(":","-")}

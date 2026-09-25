@@ -1,0 +1,1 @@
+export function addText(t='Your text',o={}){let s=document.querySelector('#stage'),old=s.querySelector('.text-layer');old?.remove();let e=document.createElement('div');e.className='text-layer';e.textContent=t;e.style.color=o.color||'#fff';e.style.textShadow=o.shadow?'2px 2px 5px #000':'none';s.appendChild(e)}

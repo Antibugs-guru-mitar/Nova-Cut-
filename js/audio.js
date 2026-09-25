@@ -1,0 +1,1 @@
+import{state}from'./state.js';import{uid}from'./utils.js';export function addAudio(f){state.audio.push({id:uid('audio'),name:f.name,url:URL.createObjectURL(f),volume:1,fadeIn:0,fadeOut:0})}export function setVideoVolume(v){state.settings.videoVolume=v/100}export function setMusicVolume(v){state.settings.musicVolume=v/100}

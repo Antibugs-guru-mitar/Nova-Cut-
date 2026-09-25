@@ -1,0 +1,1 @@
+import{state,snapshot,restore}from"./state.js";const KEY="novacut-project-v1";export function saveProject(){localStorage.setItem(KEY,snapshot())}export function loadProject(){const x=localStorage.getItem(KEY);if(x)try{restore(x);return true}catch(e){}return false}export function autosave(){clearTimeout(autosave.t);autosave.t=setTimeout(saveProject,700)}
