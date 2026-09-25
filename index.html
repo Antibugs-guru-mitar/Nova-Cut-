@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080a10"><title>NovaCut — Video Editor</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="css/main.css"><link rel="stylesheet" href="css/editor.css">
+<link rel="stylesheet" href="css/timeline.css"><link rel="stylesheet" href="css/controls.css"><link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div class="app-shell">
+<header class="topbar">
+<div class="brand"><span class="brand-mark">N</span><div><strong>NovaCut</strong><small>Video Editor</small></div></div>
+<div class="project-name" id="projectName">Untitled Project</div>
+<div class="top-actions"><button class="icon-btn" id="undoBtn">↶</button><button class="icon-btn" id="redoBtn">↷</button><button class="save-btn" id="saveBtn">Save</button><button class="primary-btn" id="exportBtn">Export</button></div>
+</header>
+<main class="workspace">
+<section class="preview-panel">
+<div class="preview-toolbar"><button id="importBtn" class="tool-btn">＋ Import</button><label class="ratio-select">Ratio <select id="ratioSelect"><option>9:16</option><option>16:9</option><option>1:1</option></select></label><span id="mediaStatus">No media</span></div>
+<div class="stage-wrap"><div class="stage ratio-9-16" id="stage"><video id="previewVideo" playsinline preload="metadata"></video><canvas id="overlayCanvas"></canvas><div id="emptyStage"><div class="empty-icon">▶</div><h2>Start a new edit</h2><p>Import a video or photo to begin.</p><button class="primary-btn" id="emptyImportBtn">Import Media</button></div></div></div>
+<div class="transport"><button id="playBtn" class="play-btn">▶</button><span id="currentTime">00:00.00</span><input id="seekBar" type="range" min="0" max="100" value="0" step=".01"><span id="duration">00:00.00</span></div>
+</section>
+<aside class="inspector">
+<div class="panel-tabs"><button class="active" data-tab="tools">Tools</button><button data-tab="audio">Audio</button><button data-tab="export">Export</button></div>
+<div class="tab-panel active" id="toolsPanel"><div class="tool-grid">
+<button data-action="trim">Trim</button><button data-action="split">Split</button><button data-action="merge">Merge</button><button data-action="overlay">Overlay</button><button data-action="text">Text</button><button data-action="filters">Filters</button><button data-action="chroma">Green Screen</button><button data-action="eraser">Brush Eraser</button><button data-action="opacity">Opacity</button><button data-action="transitions">Transitions</button><button data-action="speed">Speed</button><button data-action="canvas">Canvas</button>
+</div><div id="toolInspector" class="tool-inspector"><p class="muted">Select a tool.</p></div></div>
+<div class="tab-panel" id="audioPanel"><button class="wide-btn" data-action="add-audio">＋ Add Music / Audio</button><div class="field"><label>Video Volume <span id="videoVolValue">100%</span></label><input id="videoVolume" type="range" min="0" max="100" value="100"></div><div class="field"><label>Music Volume <span id="musicVolValue">100%</span></label><input id="musicVolume" type="range" min="0" max="100" value="100"></div><div class="field-row"><label>Fade In <input id="audioFadeIn" type="number" min="0" value="0"> sec</label><label>Fade Out <input id="audioFadeOut" type="number" min="0" value="0"> sec</label></div></div>
+<div class="tab-panel" id="exportPanel"><div class="field"><label>Resolution</label><select id="exportResolution"><option value="720">720p</option><option value="1080">1080p</option></select></div><div class="export-note">Local/device-side architecture. No AI or API key is required.</div><button class="primary-btn wide-btn" id="exportBtnSide">Export Video</button></div>
+</aside>
+<section class="timeline-panel"><div class="timeline-head"><strong>Timeline</strong><div class="timeline-actions"><button data-action="add-video">＋ Video</button><button data-action="add-photo">＋ Photo</button><button data-action="add-audio">＋ Audio</button></div></div>
+<div class="timeline"><div class="track-label">VIDEO</div><div class="track" id="videoTrack"><div class="timeline-empty">Import media to build your timeline</div></div><div class="track-label">AUDIO</div><div class="track audio-track" id="audioTrack"></div></div></section>
+</main></div>
+<input type="file" id="mediaInput" accept="video/*,image/*" multiple hidden><input type="file" id="audioInput" accept="audio/*" multiple hidden><input type="file" id="overlayInput" accept="video/*,image/*" multiple hidden>
+<div class="modal" id="exportModal" hidden><div class="modal-card"><button class="modal-close" data-close>×</button><h2>Exporting</h2><div class="progress"><span id="exportProgress"></span></div><p id="exportStatus">Preparing project…</p></div></div><div class="toast" id="toast"></div>
+<script type="module" src="js/app.js"></script>
+</body></html>
